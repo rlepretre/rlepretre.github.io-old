@@ -1,18 +1,14 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-const snowFlake = ref(null);
-onMounted(() => {
-    console.log(snowFlake);
+defineProps({
+    snowing: Boolean,
 })
-
-// var time = Math.random();
-// var red = document.querySelector('#fall');
-// red.style.setProperty('--animation-time', time +'s');
 </script>
 
 <template>
-    <div v-for="i in 100" ref="snowFlake" class="snow fall"
-        :style="{ animationDelay: `${Math.random() * 10}s`, left: `${Math.random() * 98}%` }"></div>
+    <div v-show="snowing">
+        <div v-for="i in 100" class="snow fall"
+            :style="{ animationDelay: `${Math.random() * 10}s`, left: `${Math.random() * 98}%` }"></div>
+    </div>
 </template>
 
 <style scoped>
@@ -26,7 +22,7 @@ onMounted(() => {
     height: 5px;
     border-radius: 50%;
     top: -20px;
-    background-color: var(--darkerBlue);
+    background-color: var(--lightGray);
     will-change: filter;
     transition: filter 300ms;
 }
@@ -36,7 +32,7 @@ onMounted(() => {
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-timing-function: cubic-bezier(.5, 0, 1, .5);
-    filter: drop-shadow(0 0 10px var(--darkBlue));
+    filter: drop-shadow(0 0 10px var(--lightGray));
 }
 
 @keyframes drop {
@@ -52,14 +48,12 @@ onMounted(() => {
 }
 
 @media (prefers-color-scheme: light) {
-    a {
-        font-weight: 500;
-        color: var(--blue);
-        text-decoration: inherit;
+    .snow {
+        background-color: var(--darkBlue);
     }
 
-    a:hover {
-        color: var(--lightBlue);
+    .fall {
+        filter: drop-shadow(0 0 10px var(--darkBlue));
     }
 }
 </style>

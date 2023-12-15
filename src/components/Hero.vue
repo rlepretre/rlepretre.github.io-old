@@ -9,21 +9,23 @@ const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
   <div>
-    <h2>
-      <a href="/" target="_blank">
-        Home
-      </a>
-      <span>|</span>
-      <a href="/" target="_blank">
-        About
-      </a>
-      <span>|</span>
-      <a href="/" target="_blank">
-        Projects
-      </a>
-    </h2>
+    <h1>{{ msg }}</h1>
+    <div>
+      <h2>
+        <a href="/" target="_blank">
+          Home
+        </a>
+        <span>|</span>
+        <a href="/" target="_blank">
+          About
+        </a>
+        <span>|</span>
+        <a href="/" target="_blank">
+          Projects
+        </a>
+      </h2>
+    </div>
   </div>
 </template>
 
